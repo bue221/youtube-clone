@@ -1,0 +1,11 @@
+.VideoRow{
+        display: flex;
+        max-width: 700px;
+        max-height: 200px;
+        align-items: center;
+        margin-top: 2.5rem;
+}
+
+.VideoRow > img{
+        width: 45%;
+}
