@@ -1,0 +1,15 @@
+.cardvideo {
+  width: 200px;
+}
+
+.cardvideo > img {
+  width: inherit;
+}
+
+.info-l {
+  display: flex;
+}
+
+.info-l > div {
+  padding: 5px;
+}

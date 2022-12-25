@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+}
+
+.header-logo {
+  width: 95px;
+  object-fit: contain;
+  margin-left: 20px;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  flex: 0.4;
+}
+
+.header-center > input {
+  font-size: 12pt;
+  flex: 1;
+}
+
+.header-rigth {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  color: grey;
+}
