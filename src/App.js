@@ -8,21 +8,30 @@ import Sidebar from "./components/sidebar/Sidebar";
 import RecomendV from "./components/recomendV/RecomendV";
 import SearchPage from "./components/searchPage/SearchPage";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+  useParams,
+} from "react-router-dom";
 
 function App() {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
   const [data, setData] = useState("");
-
-  const boton = () => setOpen(!open);
-
+  //
+  const history = useHistory();
+  //
+  const toggleSideBar = () => setOpen(!open);
+  const handleChange = (e) => setValue(e.target.value);
+  //
   const submit = async () => {
     const res = await youtube.get("search", {
       params: {
         part: "snippet",
         maxResults: 10,
-        key: [`${process.env.REACT_APP_YOUTUBE_API_KEY}`],
+        key: `AIzaSyAhJAhgZl99mTlTaQnRa9afusD9oBqzY1M`,
         q: value,
       },
     });
@@ -30,14 +39,18 @@ function App() {
     setValue("");
   };
 
-  const cambio = (e) => setValue(e.target.value);
-
   return (
     <div className="App">
       <Router>
-        <Header boton={boton} cambio={cambio} value={value} submit={submit} />
+        <Header
+          boton={toggleSideBar}
+          cambio={handleChange}
+          value={value}
+          setValue={setValue}
+          submit={submit}
+        />
         <Switch>
-          <Route path="/search">
+          <Route path="/search/:value">
             <div className="app-page">
               <Sidebar open={open} />
               <SearchPage open={open} data={data} />

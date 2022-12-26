@@ -1,5 +1,6 @@
 .cardvideo {
-  width: 200px;
+  width: 300px;
+  cursor: pointer;
 }
 
 .cardvideo > img {
@@ -12,4 +13,19 @@
 
 .info-l > div {
   padding: 5px;
+}
+
+.title-video {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  overflow: hidden;
+  display: block;
+  max-height: 4rem;
+  -webkit-line-clamp: 2;
+  display: box;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+  font-weight: 800;
 }

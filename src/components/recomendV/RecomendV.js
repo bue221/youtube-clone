@@ -1,105 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./RecomendV.css";
 import VideoCard from "../videoCard/VideoCard";
+import youtube from "../../api/youtube";
 
 const RecomendVideos = ({ open }) => {
+  // states
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState(false);
+
+  //
+  const handleSubmit = async (value) => {
+    setLoading(true);
+    try {
+      const res = await youtube.get("search", {
+        params: {
+          part: "snippet",
+          maxResults: 20,
+          key: `AIzaSyAhJAhgZl99mTlTaQnRa9afusD9oBqzY1M`,
+          q: value,
+        },
+      });
+      setData(res.data.items);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  //
+  useEffect(() => {
+    handleSubmit("aprender a programar");
+  }, []);
+
   return (
     <div className={`recomendV ${open && "all"}`}>
-      <h1>Recomended</h1>
+      {/* <h1>Recomended</h1> */}
       <div className="videos">
-        <VideoCard
-          title="Revisando Clean code vale la pena leerlo? | review"
-          image="https://i.ytimg.com/an_webp/uQfm6YaJTJI/mqdefault_6s.webp?du=3000&sqp=CMyvofkF&rs=AOn4CLBh_RrdpsBFfQqpi74hYn-pJWklcg"
-          Cimg="https://yt3.ggpht.com/a-/AOh14GjzDgGUEEHG3UXSJR7ttTKG_U9FW3_UGbn15Q=s68-c-k-c0x00ffffff-no-rj-mo"
-          views="59.704"
-          time="2 day ago"
-          chanel="HolaMundo"
-        />
-
-        <VideoCard
-          title="Understanding technology | CS50"
-          image="https://miro.medium.com/max/3000/1*wkAijwnNJVRtga7ygIgTzA.jpeg
-                              "
-          Cimg="https://yt3.ggpht.com/a-/AOh14GjoZu6gMtNOa1yZSW9arDLqaalwajp3ziFI2Q=s68-c-k-c0x00ffffff-no-rj-mo"
-          views="21.704"
-          time="2 years ago"
-          chanel="CS50"
-        />
-        <VideoCard
-          title="Revisando Clean code vale la pena leerlo? | review"
-          image="https://static.iris.net.co/semana/upload/images/2020/3/24/658901_1.jpg"
-          Cimg="https://yt3.ggpht.com/a-/AOh14GhXS0zzKFYZrfHAcR9H64ccdDgNutmOlHsm9A=s68-c-k-c0x00ffffff-no-rj-mo"
-          views="24.663"
-          time="20 hours ago"
-          chanel="Revista semana"
-        />
-        <VideoCard
-          title="Revisando Clean code vale la pena leerlo? | review"
-          image="https://i.ytimg.com/an_webp/uQfm6YaJTJI/mqdefault_6s.webp?du=3000&sqp=CMyvofkF&rs=AOn4CLBh_RrdpsBFfQqpi74hYn-pJWklcg"
-          Cimg="https://yt3.ggpht.com/a-/AOh14GjzDgGUEEHG3UXSJR7ttTKG_U9FW3_UGbn15Q=s68-c-k-c0x00ffffff-no-rj-mo"
-          views="59.704"
-          time="2 day ago"
-          chanel="HolaMundo"
-        />
-
-        <VideoCard
-          title="Understanding technology | CS50"
-          image="https://miro.medium.com/max/3000/1*wkAijwnNJVRtga7ygIgTzA.jpeg"
-          Cimg="https://yt3.ggpht.com/a-/AOh14GjoZu6gMtNOa1yZSW9arDLqaalwajp3ziFI2Q=s68-c-k-c0x00ffffff-no-rj-mo"
-          views="21.704"
-          time="2 years ago"
-          chanel="CS50"
-        />
-        <VideoCard
-          title="Revisando Clean code vale la pena leerlo? | review"
-          image="https://static.iris.net.co/semana/upload/images/2020/3/24/658901_1.jpg"
-          Cimg="https://yt3.ggpht.com/a-/AOh14GhXS0zzKFYZrfHAcR9H64ccdDgNutmOlHsm9A=s68-c-k-c0x00ffffff-no-rj-mo"
-          views="24.663"
-          time="20 hours ago"
-          chanel="Revista semana"
-        />
-        <VideoCard
-          title="Revisando Clean code vale la pena leerlo? | review"
-          image="https://i.ytimg.com/an_webp/uQfm6YaJTJI/mqdefault_6s.webp?du=3000&sqp=CMyvofkF&rs=AOn4CLBh_RrdpsBFfQqpi74hYn-pJWklcg"
-          Cimg="https://yt3.ggpht.com/a-/AOh14GjzDgGUEEHG3UXSJR7ttTKG_U9FW3_UGbn15Q=s68-c-k-c0x00ffffff-no-rj-mo"
-          views="59.704"
-          time="2 day ago"
-          chanel="HolaMundo"
-        />
-
-        <VideoCard
-          title="Understanding technology | CS50"
-          image="https://miro.medium.com/max/3000/1*wkAijwnNJVRtga7ygIgTzA.jpeg"
-          Cimg="https://yt3.ggpht.com/a-/AOh14GjoZu6gMtNOa1yZSW9arDLqaalwajp3ziFI2Q=s68-c-k-c0x00ffffff-no-rj-mo"
-          views="21.704"
-          time="2 years ago"
-          chanel="CS50"
-        />
-        <VideoCard
-          title="Revisando Clean code vale la pena leerlo? | review"
-          image="https://static.iris.net.co/semana/upload/images/2020/3/24/658901_1.jpg"
-          Cimg="https://yt3.ggpht.com/a-/AOh14GhXS0zzKFYZrfHAcR9H64ccdDgNutmOlHsm9A=s68-c-k-c0x00ffffff-no-rj-mo"
-          views="24.663"
-          time="20 hours ago"
-          chanel="Revista semana"
-        />
-        <VideoCard
-          title="Understanding technology | CS50"
-          image="https://miro.medium.com/max/3000/1*wkAijwnNJVRtga7ygIgTzA.jpeg"
-          Cimg="https://yt3.ggpht.com/a-/AOh14GjoZu6gMtNOa1yZSW9arDLqaalwajp3ziFI2Q=s68-c-k-c0x00ffffff-no-rj-mo"
-          views="21.704"
-          time="2 years ago"
-          chanel="CS50"
-        />
-        <VideoCard
-          title="Revisando Clean code vale la pena leerlo? | review"
-          image="https://static.iris.net.co/semana/upload/images/2020/3/24/658901_1.jpg"
-          Cimg="https://yt3.ggpht.com/a-/AOh14GhXS0zzKFYZrfHAcR9H64ccdDgNutmOlHsm9A=s68-c-k-c0x00ffffff-no-rj-mo"
-          views="24.663"
-          time="20 hours ago"
-          chanel="Revista semana"
-        />
+        {data &&
+          data.map(
+            (i) =>
+              i.id.kind !== "youtube#channel" && (
+                <VideoCard
+                  key={i.etag}
+                  title={i.snippet.title}
+                  img={i.snippet.thumbnails.default.url}
+                  Cimg={i.snippet.thumbnails.medium.url}
+                  time="2 hours ago"
+                  views={456}
+                  chanel={i.snippet.channelTitle}
+                  videoId={i.id.videoId}
+                />
+              )
+          )}
       </div>
     </div>
   );

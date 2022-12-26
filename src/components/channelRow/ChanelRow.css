@@ -1,7 +1,10 @@
 .chanelrow {
   display: flex;
   align-items: center;
-  width: 70%;
+  gap: 10px;
+  justify-content: space-evenly;
+  width: 100%;
+  cursor: pointer;
 }
 
 .logo {
@@ -17,4 +20,18 @@
 .info > p {
   color: #606060;
   font-size: small !important;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  overflow: hidden;
+  display: block;
+  max-height: 4rem;
+  -webkit-line-clamp: 2;
+  display: box;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
 }

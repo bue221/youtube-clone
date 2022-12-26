@@ -4,14 +4,15 @@ import "./Sidebar.css";
 import { Link } from "react-router-dom";
 
 import SidebarRow from "../sidebarRow/SidebarRow";
-import HomeIcon from "@material-ui/icons/Home";
-import SubscriptionsIcon from "@material-ui/icons/Subscriptions";
-import WhatshotIcon from "@material-ui/icons/Whatshot";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import LiveTvOutlinedIcon from "@material-ui/icons/LiveTvOutlined";
-import HistoryIcon from "@material-ui/icons/History";
-import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+//
+import HomeIcon from "@mui/icons-material/Home";
+import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import LiveTvOutlinedIcon from "@mui/icons-material/LiveTvOutlined";
+import HistoryIcon from "@mui/icons-material/History";
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const Sidebar = ({ open }) => {
   return (

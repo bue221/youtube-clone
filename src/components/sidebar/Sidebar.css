@@ -1,59 +1,62 @@
-.sidebar{
-        flex: 0.2;
+.sidebar {
+  flex: 0.15;
+  transition: all ease 1s;
+  overflow: auto;
+  height: 90vh;
 }
-.sidebar.close{
-        display: none;
-}
-
-.sidebar > hr{
-        margin-top: 10px;
-        margin-bottom: 10px;
-        background-color: lightgrey;
-        border: 0;
-        height: 1px;
+.sidebar.close {
+  display: none;
+  transition: all ease 1s;
 }
 
-.sidebarRow{
-        display: flex;
-        align-items: center;
-        padding: 10px 20px;
+.sidebar > hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: lightgrey;
+  border: 0;
+  height: 1px;
 }
 
-.row-title{
-        flex: 1;
-        margin-left: 20px;
-        font-size: 17px;
-        font-weight: 50px;
+.sidebarRow {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
 }
 
-.row-icon{
-        color: grey;
-        font-size: large !important;
+.row-title {
+  flex: 1;
+  margin-left: 20px;
+  font-size: 17px;
+  font-weight: 50px;
 }
 
-.sidebarRow:hover{
-        background-color: lightgrey;
-        cursor:pointer;
+.row-icon {
+  color: grey;
+  font-size: large !important;
 }
 
-.sidebarRow:hover >.row-icon {
-        color: red;
+.sidebarRow:hover {
+  background-color: lightgrey;
+  cursor: pointer;
 }
 
-
-.sidebarRow:hover > .row-title{
-        font-weight: bold;
+.sidebarRow:hover > .row-icon {
+  color: red;
 }
 
-.sidebarRow.select{
-        background: lightgrey;
+.sidebarRow:hover > .row-title {
+  font-weight: bold;
 }
 
-.sidebarRow.select> .row-icon{
-        color: red;
+.sidebarRow.select {
+  background: lightgrey;
 }
 
-.link{
-        text-decoration: none;
-        color: black;
+.sidebarRow.select > .row-icon {
+  color: red;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
 }
