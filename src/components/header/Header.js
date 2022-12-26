@@ -14,7 +14,7 @@ import { Avatar, IconButton, InputAdornment, TextField } from "@mui/material";
 const Header = ({ boton, cambio, value, setValue }) => {
   const history = useHistory();
   const submit = () => {
-    history.push(`search/${value}`);
+    history.push({ pathname: `/search/${value}` });
     setValue("");
   };
 

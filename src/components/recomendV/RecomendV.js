@@ -17,7 +17,7 @@ const RecomendVideos = ({ open }) => {
         params: {
           part: "snippet",
           maxResults: 20,
-          key: `AIzaSyAhJAhgZl99mTlTaQnRa9afusD9oBqzY1M`,
+          key: process.env.REACT_APP_YOUTUBE_API_KEY,
           q: value,
         },
       });

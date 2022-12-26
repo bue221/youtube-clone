@@ -22,7 +22,7 @@ const SearchPage = ({ open }) => {
         params: {
           part: "snippet",
           maxResults: 10,
-          key: `AIzaSyAhJAhgZl99mTlTaQnRa9afusD9oBqzY1M`,
+          key: process.env.REACT_APP_YOUTUBE_API_KEY,
           q: value,
         },
       });
@@ -36,7 +36,7 @@ const SearchPage = ({ open }) => {
 
   useEffect(() => {
     if (params.value) handleSubmit(params.value);
-  }, [params]);
+  }, [params.value]);
 
   return (
     <div className={`searchpage ${open && "all"}`}>
